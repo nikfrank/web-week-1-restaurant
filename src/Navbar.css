@@ -1,0 +1,94 @@
+.Navbar {
+  height: 80px;
+  background-color: #730;
+  width: 100vw;
+
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  border-bottom: 4px dotted #00ced1;
+  border-top: 4px dashed #ce00d1;
+}
+
+.Navbar h1 {
+  margin: 0;
+  color: white;
+}
+
+.Navbar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.Navbar ul li {
+  margin: 3px;
+  border: 2px solid gold;
+  border-radius: 5px;
+}
+
+.Navbar ul li:first-child {
+  display: none;
+}
+
+.Navbar ul li div {
+  background-color: #3333;
+  border-radius: 4px;
+  padding: 20px;
+  font-weight: 800;
+}
+
+.Navbar ul li div:hover {
+  background: repeating-linear-gradient(
+    45deg,
+    #60edbc,
+    #60edbc 10px,
+    #46e298 10px,
+    #46e298 20px
+  );
+  color: red;
+}
+
+.Navbar ul li div:active {
+  background: repeating-linear-gradient(
+    45deg,
+    #30ed9c,
+    #60ed9c 10px,
+    #16e268 10px,
+    #16e268 20px
+  );
+  color: red;
+  text-shadow: 2px 2px #00f;
+}
+
+.Navbar ul a {
+  color: white;
+  text-decoration: none;
+}
+
+.Navbar ul a:hover {
+  color: #aaa;
+}
+
+@media (max-width: 514px) {
+  .Navbar ul {
+    margin-top: 8px;
+    text-align: center;
+    height: 65px;
+    overflow: hidden;
+    flex-direction: column;
+    align-self: start;
+  }
+
+  .Navbar ul:hover {
+    height: initial;
+  }
+
+  .Navbar ul li:first-child {
+    display: block;
+  }
+}
