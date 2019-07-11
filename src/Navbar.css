@@ -12,6 +12,8 @@
 
   border-bottom: 4px dotted #00ced1;
   border-top: 4px dashed #ce00d1;
+
+  overflow-y: visible;
 }
 
 .Navbar h1 {
@@ -91,4 +93,20 @@
   .Navbar ul li:first-child {
     display: block;
   }
+
+  .Navbar ul li:first-child div {
+    padding: 9px 0 6px;
+  }
+  .Navbar ul li:first-child svg {
+    height: 40px;
+    fill: gold;
+  }
+  .Navbar ul:hover li:first-child svg {
+    fill: black;
+  }
+
+  .Navbar ul li:first-child img {
+    height: 40px;
+  }
+
 }

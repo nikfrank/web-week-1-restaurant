@@ -1,0 +1,16 @@
+.Landing {
+  background-color: #fd08;
+}
+
+.Landing ul.slider li.slide {
+  max-height: 60vh;
+  background-color: transparent;
+}
+.Landing ul.slider {
+  max-height: 60vh;
+}
+
+.Landing .slide.selected div img {
+  max-height: 60vh;
+  width: auto;
+}

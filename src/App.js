@@ -13,8 +13,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Menu from './Menu';
 import Contact from './Contact';
-
-const Landing = ()=> (<div className='Page'></div>);
+import Landing from './Landing';
 
 class App extends React.Component {
   // router is taking the url, to decide which Component Route to render
