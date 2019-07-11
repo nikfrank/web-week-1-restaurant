@@ -10,7 +10,7 @@
   max-height: 60vh;
 }
 
-.Landing .slide.selected div img {
+.Landing .slide div img {
   max-height: 60vh;
   width: auto;
 }
