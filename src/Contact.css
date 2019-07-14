@@ -1,0 +1,61 @@
+.Contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Contact .form-container {
+  min-height: 60vh;
+  width: 80vw;
+  min-width: 330px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19),
+              0 6px 6px rgba(0,0,0,0.23),
+              0 -1px 6px rgba(0,0,0,0.23);
+}
+
+.Contact .form-container input {
+  width: calc(50% - 40px);
+  min-width: 300px;
+  height: 30px;
+  margin: 10px 15px;
+  padding-left: 5px;
+}
+
+.Contact .form-container .OverTextarea {
+  width: 100%;
+  height: 270px;
+  margin: 10px 15px;
+}
+
+.Contact .form-container .OverTextarea textarea {
+  resize: none;
+  padding: 5px;
+  height: 100%;
+  width: calc(100% - 14px);
+}
+
+.Contact .form-container h3 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.Contact .form-container button {
+  margin: 10px;
+  padding: 5px;
+  background-color: #00ced1;
+  border-radius: 4px;
+  border-style: solid;
+  outline: none;
+}
+
+.Contact .form-container button:hover {
+  background-color: #00abb0;
+}
+
+.Contact .form-container button:active {
+  background-color: #0080b0;
+}
