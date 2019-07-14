@@ -1,3 +1,7 @@
 .Home {
   height: 200vh;
 }
+
+.Home > div:first-child > div:first-child {
+  background-size: 140vw auto;
+}
