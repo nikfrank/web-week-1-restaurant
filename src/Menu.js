@@ -2,6 +2,18 @@ import React from 'react';
 import menu from './menu-database';
 import './Menu.css';
 
+const currencyByLang = {
+  en: 'USD',
+  fr: 'EUR',
+  he: 'ILS',
+};
+
+const currencySymbols = {
+  USD: '$',
+  EUR: '€',
+  ILS: '₪',
+};
+
 class Menu extends React.Component {
   state = {
     currentLanguage: 'en',
@@ -36,7 +48,10 @@ class Menu extends React.Component {
                      key={menuItem.name[currentLanguage]}>
                   <span>{menuItem.name[currentLanguage]}</span>
                   <span className='dotted-connector'><span/></span>
-                  <span>${menuItem.price}</span>
+                  <span>
+                    {currencySymbols[currencyByLang[currentLanguage]]}
+                    {menuItem.price[currencyByLang[currentLanguage]]}
+                  </span>
                 </div>
               ))}
             </div>

@@ -19,6 +19,8 @@ class Landing extends React.Component {
   render(){
     return (
       <div className='Landing Page'>
+        <a style={{ position: 'absolute', top: 200, left: 200, zIndex: 100 }}
+           onClick={()=> window.scrollTo({ top: window.innerHeight-80, behavior: 'smooth'})}>BLAH</a>
         <Carousel showArrows={true}
                   onChange={this.onChange}
                   onClickItem={this.onClickItem}

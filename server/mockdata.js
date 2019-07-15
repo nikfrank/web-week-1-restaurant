@@ -1,0 +1,33 @@
+module.exports = {
+  menuitems: [
+    { name: 'egg burrito', lang: 'en', price: 4.20, currency: 'USD', pagetitle: 'Breakfast' },
+    { name: 'egg taco', lang: 'en', price: 3.20, currency: 'USD', pagetitle: 'Breakfast' },
+    { name: 'huevos rancheros', lang: 'en', price: 6.20, currency: 'USD', pagetitle: 'Breakfast' },
+    { name: 'fish taco', lang: 'en', price: 3.20, currency: 'USD', pagetitle: 'Lunch' },
+    { name: 'chicken taco', lang: 'en', price: 4.20, currency: 'USD', pagetitle: 'Lunch' },
+    { name: 'beef taco', lang: 'en', price: 5.20, currency: 'USD', pagetitle: 'Lunch' },
+    { name: 'ice cream taco', lang: 'en', price: 4.20, currency: 'USD', pagetitle: 'Dessert' },
+    { name: 'chocolate taco', lang: 'en', price: 5.20, currency: 'USD', pagetitle: 'Dessert' },
+    { name: 'vanilla taco', lang: 'en', price: 4.20, currency: 'USD', pagetitle: 'Dessert' },
+
+    { name: 'burrito oeuf', lang: 'fr', price: 5.30, currency: 'EUR', pagetitle: 'Petit Dejeuner' },
+    { name: 'taco oeuf', lang: 'fr', price: 4.30, currency: 'EUR', pagetitle: 'Petit Dejeuner' },
+    { name: 'hueveaux ranchereaux', lang: 'fr', price: 4.30, currency: 'EUR', pagetitle: 'Petit Dejeuner' },
+    { name: 'taco poisson', lang: 'fr', price: 4.30, currency: 'EUR', pagetitle: 'Dejeuner' },
+    { name: 'taco poulet', lang: 'fr', price: 5.30, currency: 'EUR', pagetitle: 'Dejeuner' },
+    { name: 'taco boeuf', lang: 'fr', price: 6.30, currency: 'EUR', pagetitle: 'Dejeuner' },
+    { name: 'taco glace', lang: 'fr', price: 3.30, currency: 'EUR', pagetitle: 'Desserts' },
+    { name: 'taco chocolat', lang: 'fr', price: 4.30, currency: 'EUR', pagetitle: 'Desserts' },
+    { name: 'taco vanille', lang: 'fr', price: 4.30, currency: 'EUR', pagetitle: 'Desserts' },
+
+    { name: 'ביצים', lang: 'he', price: 14.40, currency: 'ILS', pagetitle: 'ארחת בוקר' },
+    { name: 'טקו ביצה', lang: 'he', price: 16.40, currency: 'ILS', pagetitle: 'ארחת בוקר' },
+    { name: 'חואווס', lang: 'he', price: 11.40, currency: 'ILS', pagetitle: 'ארחת בוקר' },
+    { name: 'טקו דג', lang: 'he', price: 13.40, currency: 'ILS', pagetitle: 'נש' },
+    { name: 'טקו עוף', lang: 'he', price: 18.40, currency: 'ILS', pagetitle: 'נש' },
+    { name: 'טקו בשר', lang: 'he', price: 13.40, currency: 'ILS', pagetitle: 'נש' },
+    { name: 'טקו גלידה', lang: 'he', price: 12.40, currency: 'ILS', pagetitle: 'מדבר' },
+    { name: 'טקו שוקו', lang: 'he', price: 11.40, currency: 'ILS', pagetitle: 'מדבר' },
+    { name: 'טקו צרפתי', lang: 'he', price: 11.40, currency: 'ILS', pagetitle: 'מדבר' },
+  ],
+};
