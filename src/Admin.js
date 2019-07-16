@@ -57,6 +57,24 @@ class Admin extends React.Component {
     pagetitle: event.target.value,
   })
 
+  keys = [
+    'pagenumber',
+    'pageposition',
+    'lang',
+    'currency',
+    'price',
+    'name',
+    'pagetitle'
+  ]
+
+  setValue = this.keys.reduce((setters, key)=> ({
+    ...setters,
+    [key]: event => this.setState({
+        [key]: (typeof this.state[key] === 'number') ?
+                    1*event.target.value : event.target.value,
+      })
+  }), {})
+
   createMenuitem = ()=> {
     const {
       pagenumber,
@@ -115,7 +133,21 @@ class Admin extends React.Component {
   render(){
     return (
       <div className='Admin Page'>
+
         <div className='add-form'>
+          {
+            this.keys.map(key=> (
+              <label key={key}>
+                {key.slice(0,5)}
+                <input value={this.state[key]}
+                       onChange={this.setValue[key]}
+                />
+              </label>
+            ))
+          }
+          <button onClick={this.createMenuitem}>+</button>
+        </div>
+        <div className='add-form' style={{ display: 'none' }}>
           <label>
             pg#
             <input value={this.state.pagenumber}
