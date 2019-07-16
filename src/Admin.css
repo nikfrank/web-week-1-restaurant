@@ -1,0 +1,53 @@
+.Admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Admin .add-form {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Admin table {
+  height: 60vh;
+  width: 80vw;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.Admin table tbody{
+  overflow: auto;
+  width: 100%;
+  display: block;
+  height: 60vh;
+}
+
+.Admin table tr {
+  display: block;
+}
+
+.Admin table thead {
+  background: black;
+  color:#fff;
+}
+
+.Admin table th, .Admin table td {
+  padding: 5px;
+  text-align: left;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.Admin table td:nth-child(1),
+.Admin table td:nth-child(2),
+.Admin table td:nth-child(3),
+.Admin table th:nth-child(1),
+.Admin table th:nth-child(2),
+.Admin table th:nth-child(3) {
+  width: 35px;
+}

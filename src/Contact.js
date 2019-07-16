@@ -35,6 +35,17 @@ class Contact extends React.Component {
 
   submit = ()=> {
     console.log(this.state.name, this.state.email, this.state.message);
+    fetch('/comment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        content: this.state.message,
+      }),
+    }).then(response=> response.json())
+      .then(message => console.log(message))
+      .catch(err => console.error(err));
   }
 
   render(){
