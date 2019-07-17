@@ -15,6 +15,8 @@ class Admin extends React.Component {
     price: 0,
     name: '',
     pagetitle: '',
+
+    currentlyEditing: {},
   }
 
   componentDidMount(){
@@ -128,7 +130,66 @@ class Admin extends React.Component {
       .then(menuitems => this.setState({ menuitems }))
   }
 
+  destroy = id=> {
+    fetch('/menuitem/'+id, {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer '+this.state.sessionToken
+      },
+    }).then(response => {
+      if(response.status >= 400){
+        console.error(response.status);
+      } else {
+        return response.json();
+      }
+    }).then(responseJson=> this.getMenu());
+  }
 
+  startEditing = menuitem=> {
+    this.setState({
+      currentlyEditing: {
+        ...this.state.currentlyEditing,
+        [menuitem.id]: menuitem,
+      }
+    })
+  }
+
+  editMenuitem = (id, key, value)=> {
+    this.setState({
+      currentlyEditing: {
+        ...this.state.currentlyEditing,
+        [id]: {
+          ...this.state.currentlyEditing[id],
+          [key]: typeof this.state.currentlyEditing[id][key] === 'number' ? 1*value : value,
+        },
+      },
+    });
+  }
+
+  cancel = id=> {
+    const currentlyEditing = {...this.state.currentlyEditing};
+    delete currentlyEditing[id];
+
+    this.setState({ currentlyEditing });
+  }
+
+  save = id=> {
+    fetch('/menuitem/'+id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer '+this.state.sessionToken
+      },
+      body: JSON.stringify(this.state.currentlyEditing[id]),
+    }).then(response=> {
+      if( response.status >= 400 ) return Promise.reject(response.status);
+      else return response.json();
+    }).then(responseJson => {
+      this.cancel(id);
+      this.getMenu();
+    })
+      .catch(err => console.error(err));
+  }
 
   render(){
     return (
@@ -217,19 +278,68 @@ class Admin extends React.Component {
                 <th>price</th>
                 <th>name</th>
                 <th>pg title</th>
+                <th>X</th>
               </tr>
             </thead>
             <tbody>
               {this.state.menuitems.map( (menuitem, i)=> (
-                <tr key={i}>
-                  <td>{menuitem.pagenumber}</td>
-                  <td>{menuitem.pageposition}</td>
-                  <td>{menuitem.lang}</td>
-                  <td>{menuitem.currency}</td>
-                  <td>{menuitem.price}</td>
-                  <td>{menuitem.name}</td>
-                  <td>{menuitem.pagetitle}</td>
-                </tr>
+                (menuitem.id in this.state.currentlyEditing) ? (
+                  <tr key={'edit'+i}>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].pagenumber}
+                             onChange={event => this.editMenuitem(menuitem.id, 'pagenumber', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].pageposition}
+                             onChange={event => this.editMenuitem(menuitem.id, 'pageposition', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].lang}
+                             onChange={event => this.editMenuitem(menuitem.id, 'lang', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].currency}
+                             onChange={event => this.editMenuitem(menuitem.id, 'currency', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].price}
+                             onChange={event => this.editMenuitem(menuitem.id, 'price', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].name}
+                             onChange={event => this.editMenuitem(menuitem.id, 'name', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input value={this.state.currentlyEditing[menuitem.id].pagetitle}
+                             onChange={event => this.editMenuitem(menuitem.id, 'pagetitle', event.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <button onClick={()=> this.cancel(menuitem.id)}>Cancel</button>
+                      <button onClick={()=> this.save(menuitem.id)}>Save</button>
+                    </td>
+                  </tr>
+                ) : (
+                  <tr key={i}>
+                    <td>{menuitem.pagenumber}</td>
+                    <td>{menuitem.pageposition}</td>
+                    <td>{menuitem.lang}</td>
+                    <td>{menuitem.currency}</td>
+                    <td>{menuitem.price}</td>
+                    <td>{menuitem.name}</td>
+                    <td>{menuitem.pagetitle}</td>
+                    <td>
+                      <button onClick={()=> this.destroy(menuitem.id)}>Delete</button>
+                      <button onClick={()=> this.startEditing(menuitem)}>Edit</button>
+                    </td>
+                  </tr>
+                )
               ))}
             </tbody>
           </table>

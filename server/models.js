@@ -1,5 +1,5 @@
 module.exports = (connection, ORM)=> {
-  const Menuitem = connection.define('menuitem', {
+  const menuSchema = {
     id: {
       type: ORM.INTEGER,
       primaryKey: true,
@@ -33,7 +33,10 @@ module.exports = (connection, ORM)=> {
       type: ORM.INTEGER,
       allowNull: false,
     },
-  }, { freezeTableName: true });
+  };
+
+  const Menuitem = connection.define('menuitem', menuSchema, { freezeTableName: true });
+  const Archivemenuitem = connection.define('archivemenuitem', menuSchema, { freezeTableName: true });
 
   const Comment = connection.define('comment', {
     id: {
@@ -55,5 +58,5 @@ module.exports = (connection, ORM)=> {
     },
   }, { freezeTableName: true })
 
-  return { Menuitem, Comment };
+  return { Menuitem, Archivemenuitem, Comment };
 };

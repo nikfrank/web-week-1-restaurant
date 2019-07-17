@@ -39,8 +39,15 @@
 .Admin table th, .Admin table td {
   padding: 5px;
   text-align: left;
-  width: 100px;
+  width: 18%;
   border: 1px solid black;
+  word-wrap: break-word;
+  word-break: break-all;
+  position: relative;
+}
+
+.Admin table input {
+  width: 100%;
 }
 
 .Admin table td:nth-child(1),
